@@ -6,6 +6,10 @@ pipeline {
     SSH_CRED=credentials('SSH')
   }
 
+  options {
+          ansiColor('xterm')
+  }
+
   stages {
 
     stage ('One') {
