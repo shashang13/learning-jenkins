@@ -89,11 +89,11 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-//         stage('Parallel Stage') {
-//             when {
-//                 branch 'main'
-//             }
-//             failFast true
+        stage('Parallel Stage') {
+            when {
+                branch 'main'
+            }
+            failFast true
             parallel {
                 stage('Branch A') {
                     steps {
@@ -121,5 +121,5 @@ pipeline {
                 }
             }
         }
-//     }
+    }
 }
