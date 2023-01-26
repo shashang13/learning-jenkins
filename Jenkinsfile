@@ -98,17 +98,17 @@ pipeline {
                 label 'Workstation'
             }
             failFast true
-            parallel {
-                stage('Branch A') {
-                    steps {
-                        echo "On Branch A"
-                    }
-                }
-                stage('Branch B') {
-                    steps {
-                        echo "On Branch B"
-                    }
-                }
+//             parallel {
+//                 stage('Branch A') {
+//                     steps {
+//                         echo "On Branch A"
+//                     }
+//                 }
+//                 stage('Branch B') {
+//                     steps {
+//                         echo "On Branch B"
+//                     }
+//                 }
                 stage('Branch C') {
                     stages {
                         stage('Nested 1') {
@@ -123,7 +123,7 @@ pipeline {
                         }
                     }
                 }
-            }
+//             }
         }
     }
 }
