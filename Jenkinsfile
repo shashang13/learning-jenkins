@@ -87,14 +87,14 @@ pipeline {
     }
     stages {
         stage('Non-Parallel Stage') {
+            agent {
+                label { 'Group1'}
+            }
             steps {
                 echo 'This stage will be executed first.'
             }
         }
         stage('Parallel Stage') {
-            agent {
-                label { 'Group1'}
-            }
             failFast true
             parallel {
                 stage('Branch A') {
