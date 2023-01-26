@@ -48,6 +48,15 @@ pipeline {
         maven 'maven-3.6.0'
       }
 
+      input {
+        message "Okay to continue?"
+        ok "Yes"
+        submitter "alice,bob"
+        parameters {
+          string(name: 'Person', defaultValue: 'Shashang Sheth', description: 'Whom shall I say hello to?')
+        }
+      }
+
       steps {
 //         addShortText background: '', borderColor: '', color: '', link: '', text: 'Two'
         echo "Two"
