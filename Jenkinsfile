@@ -82,9 +82,9 @@
 
 
 pipeline {
-    agent {
-      node { label 'Workstation'}
-    }
+//     agent {
+//       node { label 'Workstation'}
+//     }
     stages {
         stage('Non-Parallel Stage') {
             agent {
