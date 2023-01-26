@@ -82,9 +82,10 @@
 
 
 pipeline {
-//     agent {
+    agent {
 //       node { label 'Workstation'}
-//     }
+      none
+    }
     stages {
         stage('Non-Parallel Stage') {
             agent {
@@ -95,6 +96,9 @@ pipeline {
             }
         }
         stage('Parallel Stage') {
+            agent {
+                label 'Workstation'
+            }
             failFast true
             parallel {
                 stage('Branch A') {
