@@ -6,9 +6,13 @@ pipeline {
     SSH_CRED=credentials('SSH')
   }
 
-//   options {
-//           ansiColor('xterm')
-//   }
+  options {
+    ansiColor('xterm')
+  }
+
+  triggers {
+    pollSCM('*/2 * * * *')
+  }
 
   parameters {
       string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
