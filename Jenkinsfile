@@ -109,7 +109,7 @@ pipeline {
 //                         echo "On Branch B"
 //                     }
 //                 }
-                stage('Branch C') {
+//                 stage('Branch C') {
                     stages {
                         stage('Nested 1') {
                             steps {
@@ -122,7 +122,7 @@ pipeline {
                             }
                         }
                     }
-                }
+//                 }
 //             }
         }
     }
