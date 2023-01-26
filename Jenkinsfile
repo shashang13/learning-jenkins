@@ -43,13 +43,18 @@ pipeline {
       environment {
         ENV_URL='stage.google.com'
       }
+
+      tools {
+        maven 'maven-3.6.0'
+      }
+
       steps {
 //         addShortText background: '', borderColor: '', color: '', link: '', text: 'Two'
         echo "Two"
         sh 'ENV_URL=${ENV_URL}'
         sh 'env'
         sh 'echo -e "\\e[31mHello"'
-        sh 'mvn clean'
+        sh 'mvn --version'
       }
     }
   }
