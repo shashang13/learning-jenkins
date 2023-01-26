@@ -14,6 +14,10 @@ pipeline {
 //     pollSCM('*/2 * * * *')
 //   }
 
+  tools {
+    maven 'maven-3.8.7'
+  }
+
   parameters {
       string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
       text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
@@ -31,6 +35,7 @@ pipeline {
           echo Hello1
           echo Hello2
           echo ENV_URL=${ENV_URL}
+          mvn --version
         '''
       }
     }
