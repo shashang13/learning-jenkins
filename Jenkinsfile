@@ -83,7 +83,6 @@
 
 pipeline {
     agent {
-//       node { label 'Workstation'}
       none
     }
     stages {
