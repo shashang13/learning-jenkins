@@ -29,6 +29,11 @@ pipeline {
   stages {
 
     stage ('One') {
+
+      when {
+        environment name: 'CHOICE', value: 'One'
+      }
+
       steps {
         addShortText background: '', borderColor: '', color: '', link: '', text: 'One'
         sh '''
@@ -39,6 +44,7 @@ pipeline {
         '''
       }
     }
+
     stage ('two') {
       environment {
         ENV_URL='stage.google.com'
@@ -48,14 +54,18 @@ pipeline {
         maven 'maven-3.6.0'
       }
 
-      input {
-        message "Okay to continue?"
-        ok "Yes"
-        submitter "alice,bob"
-        parameters {
-          string(name: 'Person', defaultValue: 'Shashang Sheth', description: 'Whom shall I say hello to?')
-        }
+      when {
+        environment name: 'CHOICE', value: 'Two'
       }
+
+//       input {
+//         message "Okay to continue?"
+//         ok "Yes"
+//         submitter "alice,bob"
+//         parameters {
+//           string(name: 'Person', defaultValue: 'Shashang Sheth', description: 'Whom shall I say hello to?')
+//         }
+//       }
 
       steps {
 //         addShortText background: '', borderColor: '', color: '', link: '', text: 'Two'
