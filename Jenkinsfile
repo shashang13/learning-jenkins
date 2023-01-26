@@ -82,9 +82,8 @@
 
 
 pipeline {
-    agent {
-      none
-    }
+    agent none
+
     stages {
         stage('Non-Parallel Stage') {
             agent {
