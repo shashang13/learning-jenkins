@@ -82,7 +82,9 @@
 
 
 pipeline {
-    agent any
+    agent {
+      node { label 'Workstation'}
+    }
     stages {
         stage('Non-Parallel Stage') {
             steps {
@@ -90,8 +92,8 @@ pipeline {
             }
         }
         stage('Parallel Stage') {
-            when {
-                branch 'main'
+            agent {
+                label { 'Group1'}
             }
             failFast true
             parallel {
